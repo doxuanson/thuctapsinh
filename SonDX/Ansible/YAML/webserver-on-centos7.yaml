@@ -1,0 +1,5 @@
+- hosts: webservers
+  remote_user: root
+  tasks:
+  - {name: Install httpd webserver, yum: name=httpd state=latest}
+  - {name: Config httpd webserver, systemd: name=httpd enabled=yes state=restarted}
