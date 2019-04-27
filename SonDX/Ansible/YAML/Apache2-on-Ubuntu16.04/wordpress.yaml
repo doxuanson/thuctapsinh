@@ -1,0 +1,16 @@
+- hosts: webserver
+  name: Install Wordpress
+  remote_user: root
+  tasks:
+  - name: Download Wordpress
+    get_url: dest=/tmp/wordpress.tar.gz mode=0755 url='http://wordpress.org/latest.tar.gz'
+  - name: Extract wordpress.tar.gz /var/www/html
+    unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/html copy=no
+  - name: copy file config
+    command: cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+  - name: config file config
+    lineinfile: path=/var/www/html/wordpress/wp-config.php regexp='{{ item.regexp }}' line='{{ item.line }}'
+    loop: 
+      - {regexp: "define\\('DB_NAME', 'database_name_here'\\);" , line: "define('DB_NAME', 'wordpress');"}
+      - {regexp: "define\\('DB_USER', 'username_here'\\);" , line: "define('DB_USER', 'wordpressuser');"}
+      - {regexp: "define\\('DB_PASSWORD', 'password_here'\\);" , line: "define('DB_PASSWORD', 'son123456');"}

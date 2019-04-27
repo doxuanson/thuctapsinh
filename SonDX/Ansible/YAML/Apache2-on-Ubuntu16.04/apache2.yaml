@@ -1,0 +1,8 @@
+- hosts: webserver
+  name: Install apache2
+  remote_user: root
+  tasks:
+  - name: Install apache2 webserver
+    apt: name=apache2 state=latest
+  - name: Config apache2 webserver
+    systemd: name=apache2 enabled=yes state=restarted

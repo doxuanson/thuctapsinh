@@ -1,0 +1,10 @@
+- hosts: webserver
+  name: Install PHP
+  remote_user: root
+  tasks:
+  - name: Install PHP
+    apt: name="{{ item }}" state=latest
+    loop: [php7.0, libapache2-mod-php7.0, php7.0-mcrypt, php7.0-mysql]
+  - name: Restarted apache2 webserver
+    systemd: name=apache2 state=restarted
+    

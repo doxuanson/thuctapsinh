@@ -1,0 +1,11 @@
+- hosts: webserver
+  name: Install MySQL server
+  remote_user: root
+  tasks:
+  - name: Install MySQL server
+    apt: name="{{ item }}" state=latest
+    loop: [mysql-server, python-mysqldb]
+  - name: Create wordpress database
+    mysql_db: name=wordpress state=present
+  - name: Create user wordpressuser for wordpress database
+    mysql_user: name=wordpressuser password='son123456' priv='wordpress.*:ALL' state=present

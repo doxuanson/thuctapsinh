@@ -11,6 +11,7 @@ https://www.topzenith.com/2018/02/top-10-best-ansible-video-tutorials.html
 
 - Install:
 https://docs.ansible.com/ansible/2.7/installation_guide/
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-centos-7
 https://askubuntu.com/questions/493460/how-to-install-add-apt-repository-using-the-terminal
 https://askubuntu.com/questions/1050084/install-python-2-7-6-in-ubuntu-16-04
 
@@ -28,6 +29,7 @@ https://docs.ansible.com/ansible/2.7/modules/modules_by_category.html
 - Playbooks:
 https://docs.ansible.com/ansible/2.7/user_guide/playbooks.html
 https://github.com/ansible/ansible-examples
+https://docs.python.org/2/library/re.html
 
 - LAB:
 https://github.com/doxuanson/Install-OpenStack/blob/master/Queens/Centos7-1804-KickStart/OPS-setup/UPDATE/ssh_update_hosts.sh
